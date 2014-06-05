@@ -10,19 +10,69 @@ graffitiAvl.factory('pubStuffFact', function ($http, $q) {
   	var api_key = "58j013k159vpqz87xd85df0uy7epvl";
 
   	//Public API
-  		//All API calls use the $q library to resolve promises asynchronously
+  		
+    //All API calls use the $q library to resolve promises asynchronously
 
   	//Get a list of request types as JSON
   	pubStuffFact.getListOfRequestTypes = function(){
   		var q = $q.defer();
   		var params = {
-  			
+  			"return_type" : "json",
+        "client_id" : client_id,
+        "api_key" : api_key 
   		};
-  		$http.get("https://www.publicstuff.com/api/2.0/requesttypes_list?return_type=json&client_id=819&api_key=58j013k159vpqz87xd85df0uy7epvl")
-  			.success(function(returnTypes) {
-	      		console.log(returnTypes);
-	    	});
+  		$http({
+          "url" : "https://www.publicstuff.com/api/2.0/requesttypes_list?", 
+          "method" : "GET",
+          "params" : params
+        })
+  			.success(function(response) {
+            if(response.response.status.type === "error"){
+              console.log(response.response.status.message)
+            }
+	      		q.resolve(response.response.request_types);
+	    	})
+        .error(function(error){
+          //log an error for now
+          console.log(error);
+        })
 	    return q.promise
   	}
+
+    //Get a list of requests as JSON
+    //valid params are: 
+    // {
+    //   "request_type_id" : Integer,
+    //   "after_timestamp" : Unix Timestamp Integer,
+    //   "before_timestamp" : Unix datetime Integer,
+    //   "status" : String,
+    //   "limit" : Integer, *Required
+    //   "lat" : Float,
+    //   "lng" : Float,
+    //   "nearby" : in lat lon units Float
+    // }
+    pubStuffFact.getListOfRequests = function(params){
+      var q = $q.defer();
+      params["return_type"] = "json";
+      console.log(params);
+      $http({
+          "url" : "https://www.publicstuff.com/api/2.0/requests_list?", 
+          "method" : "GET",
+          "params" : params
+        })
+        .success(function(response) {
+            if(response.response.status.type === "error"){
+              console.log(response.response.status.message)
+            }
+            q.resolve(response.response);
+        })
+        .error(function(error){
+          //log an error for now
+          console.log(error);
+        })
+      return q.promise
+    }
+
+    //return the factory object
   	return pubStuffFact
   });

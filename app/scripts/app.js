@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('skillstaskApp', [
+var graffitiAvl = angular.module('graffitiAvl', [
   'ngRoute'
 ])
   .config(function ($routeProvider, $locationProvider) {
