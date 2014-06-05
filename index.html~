@@ -11,10 +11,14 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+<<<<<<< HEAD
     <link rel="stylesheet" href="styles/027ad688.vendor.css"/>
     <link rel="stylesheet" href="styles/15ccfd87.main.css"/>
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-
+=======
+    <link rel="stylesheet" href="skillstask/styles/1d7769e0.vendor.css"/>
+    <link rel="stylesheet" href="skillstask/styles/5b46b3ab.main.css"/>
+>>>>>>> 3b1731c521129cc15db81835697101f23f0990d9
   </head>
   <body ng-app="graffitiAvl">
     <!--[if lt IE 7]>
@@ -31,10 +35,15 @@
     <script src="bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
 
+<<<<<<< HEAD
     <script src="scripts/31adcb2d.vendor.js"></script>
     <script type = "text/javascript" src = "https://maps.googleapis.com/maps/api/js?libraries=drawing,geometry&sensor=true"></script>
 
         <script src="scripts/39f9f9e6.scripts.js"></script>
+=======
+    <script src="skillstask/scripts/ec1b66fc.vendor.js"></script>
 
+    <script src="skillstask/scripts/a3d6d801.scripts.js"></script>
+>>>>>>> 3b1731c521129cc15db81835697101f23f0990d9
 </body>
 </html>
